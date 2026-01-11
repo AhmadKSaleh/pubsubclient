@@ -420,6 +420,7 @@ boolean PubSubClient::loop() {
                     this->buffer[0] = MQTTPINGRESP;
                     this->buffer[1] = 0;
                     _client->write(this->buffer,2);
+                    _client->flush();
                 } else if (type == MQTTPINGRESP) {
                     pingOutstanding = false;
                 }
